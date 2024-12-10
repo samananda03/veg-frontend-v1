@@ -1,10 +1,12 @@
 const express = require('express')
 require('dotenv').config();
+var cors = require('cors')
 const connectDB = require('./config/mongodbconfig')
 const userRoutes = require('./routes/userRoutes')
 connectDB();
 
 const app= express();
+app.use(cors())
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
